@@ -52,54 +52,7 @@ const AdminUserDetail = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">User Detail</h1>
-      <div className="bg-white rounded shadow p-6 mb-6">
-        <div className="mb-2"><span className="font-semibold">Name:</span> {user.name}</div>
-        <div className="mb-2"><span className="font-semibold">Email:</span> {user.email}</div>
-        <div className="mb-2"><span className="font-semibold">Join Date:</span> {user.joinDate}</div>
-        <div className="mb-2 flex items-center">
-          <span className="font-semibold mr-2">Role:</span>
-          <select
-            value={user.role}
-            onChange={handleRoleChange}
-            className="border rounded px-2 py-1"
-          >
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <div className="mb-2"><span className="font-semibold">Status:</span> {user.blocked ? <span className="text-red-500">Blocked</span> : <span className="text-green-500">Active</span>}</div>
-      </div>
-      <h2 className="text-lg font-bold mb-2">Order History</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white rounded shadow">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="py-2 px-4 text-left">Order ID</th>
-              <th className="py-2 px-4 text-left">Date</th>
-              <th className="py-2 px-4 text-left">Status</th>
-              <th className="py-2 px-4 text-left">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {user.orders && user.orders.length > 0 ? (
-              user.orders.map((order) => (
-                <tr key={order.id} className="border-b">
-                  <td className="py-2 px-4">{order.id}</td>
-                  <td className="py-2 px-4">{order.date}</td>
-                  <td className="py-2 px-4">{order.status}</td>
-                  <td className="py-2 px-4">Rp{order.amount.toLocaleString()}</td>
-                </tr>
-              ))
-            ) : (
-              <tr><td colSpan={4} className="py-2 px-4 text-center text-gray-500">No orders found.</td></tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-      <button className="mt-6 bg-blue-600 text-white px-4 py-2 rounded" onClick={() => navigate(-1)}>
-        Back to Users
-      </button>
+      {/* ...existing user detail content... */}
     </div>
   );
 };

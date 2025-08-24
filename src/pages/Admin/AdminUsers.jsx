@@ -61,7 +61,6 @@ const AdminUsers = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">User Management</h1>
       <input
         type="text"
         placeholder="Search by name or email..."

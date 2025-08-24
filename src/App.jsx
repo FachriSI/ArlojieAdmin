@@ -24,7 +24,11 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminUsers from "./pages/Admin/AdminUsers"; // User Management (data dummy, ganti dengan API)
 import AdminUserDetail from "./pages/Admin/AdminUserDetail"; // User Detail (data dummy, ganti dengan API)
 import AdminOrders from "./pages/Admin/AdminOrders"; // Order Management (data dummy, ganti dengan API)
-import AdminOrderDetail from "./pages/Admin/AdminOrderDetail"; // Order Detail (data dummy, ganti dengan API)
+import AdminOrderDetail from "./pages/Admin/AdminOrderDetail"; // Order Detail (data dummy, ganti dengan AP
+import AdminProductsNew from "./pages/Admin/AdminProductsNew";
+import AddProduct from "./pages/Admin/AddProduct";
+import EditProduct from "./pages/Admin/EditProduct";
+
 
 function App() {
   return (
@@ -52,6 +56,9 @@ function App() {
             <Route path="users/:id" element={<AdminUserDetail />} />
             <Route path="orders" element={<AdminOrders />} />
             <Route path="orders/:id" element={<AdminOrderDetail />} />
+            <Route path="products" element={<AdminProductsNew />} />
+            <Route path="products/add" element={<AddProduct />} />
+            <Route path="products/edit/:id" element={<EditProduct />} />
           </Route>
 
           {/* 404 Not Found - harus di paling bawah */}
