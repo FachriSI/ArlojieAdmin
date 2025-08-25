@@ -28,6 +28,10 @@ import AdminOrderDetail from "./pages/Admin/AdminOrderDetail"; // Order Detail (
 import AdminProductsNew from "./pages/Admin/AdminProductsNew";
 import AddProduct from "./pages/Admin/AddProduct";
 import EditProduct from "./pages/Admin/EditProduct";
+import Categories from "./pages/Admin/Categories";
+import AddCategory from "./pages/Admin/AddCategory";
+import EditCategory from "./pages/Admin/EditCategory";
+import AdminAnalytics from "./pages/Admin/AdminAnalytics";
 
 
 function App() {
@@ -59,6 +63,10 @@ function App() {
             <Route path="products" element={<AdminProductsNew />} />
             <Route path="products/add" element={<AddProduct />} />
             <Route path="products/edit/:id" element={<EditProduct />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="categories/add" element={<AddCategory />} />
+            <Route path="categories/edit/:id" element={<EditCategory />} />
+            <Route path="analytics" element={<AdminAnalytics />} />
           </Route>
 
           {/* 404 Not Found - harus di paling bawah */}

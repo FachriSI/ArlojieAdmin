@@ -22,6 +22,19 @@ const AdminCategory = () => {
 
   return (
     <div className="space-y-6 font-['Plus_Jakarta_Sans']">
+      <h1
+        style={{
+          color: 'var(--secondary, #000)',
+          fontFamily: 'Plus Jakarta Sans',
+          fontSize: '32px',
+          fontStyle: 'normal',
+          fontWeight: 600,
+          lineHeight: 'normal',
+          margin: '32px 0 0 0',
+        }}
+      >
+        Category Management
+      </h1>
       {/* Header Section */}
       <div className="flex justify-end items-center">
         <button 

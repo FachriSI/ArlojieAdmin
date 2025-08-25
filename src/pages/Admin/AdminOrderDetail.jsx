@@ -1,70 +1,112 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const dummyOrders = [
-  {
-    id: 1001,
-    customer: {
-      name: "John Doe",
-      email: "john@example.com",
-      address: "Jl. Mawar No. 1, Jakarta",
-    },
-    date: "2025-08-01",
-    status: "Pending",
-    total: 120000,
-    items: [
-      { name: "Product A", qty: 2, price: 50000 },
-      { name: "Product B", qty: 1, price: 20000 },
-    ],
+const dummyOrder = {
+  id: "#348053",
+  tanggal: "11/04/2025",
+  produk: "Longines Master",
+  total: "Rp4. 545. 000",
+  pembayaran: "COD",
+  ekspedisi: "TIKI",
+  status: "Delivered",
+  customer: {
+    nama: "Akmal",
+    email: "akmal01@gmail.com",
+    hp: "0848261625",
+    alamat:
+      "Jln. Raya Kampung Baru, Kelurahan Kampung Baru, Lubuk Kilangan, (disamping kedai ibuk) KOTA PADANG",
   },
-  {
-    id: 1002,
-    customer: {
-      name: "Jane Smith",
-      email: "jane@example.com",
-      address: "Jl. Melati No. 2, Bandung",
-    },
-    date: "2025-08-01",
-    status: "Completed",
-    total: 200000,
-    items: [
-      { name: "Product C", qty: 4, price: 50000 },
-    ],
-  },
-  // ...existing dummy orders...
-];
+};
 
-const statusOptions = ["Pending", "Completed", "Cancelled"];
+const statusOptions = ["Pending", "Paid", "Packed", "Shipped", "Delivered"];
 
 const AdminOrderDetail = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
-  const order = dummyOrders.find((o) => o.id === Number(id));
-
-  const handleStatusChange = (e) => {
-    // TODO: Integrasi dengan backend
-    alert(`Status updated to ${e.target.value}`);
-  };
-
-  const handlePrint = (type) => {
-    alert(`Print ${type}`);
-    // window.print(); // Untuk print asli
-  };
-
-  if (!order) {
-    return (
-      <div className="p-6">
-        <h2 className="text-xl font-bold mb-4">Order not found</h2>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => navigate(-1)}>
-          Back
-        </button>
-      </div>
-    );
-  }
+  const { id } = useParams();
+  // Simulasi: data order diambil berdasarkan id
+  const order = dummyOrder;
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      {/* ...existing order detail content... */}
+    <div className="min-h-screen bg-[#F4F4F4] py-8 px-4">
+      <div className="max-w-5xl mx-auto">
+        <h1
+          className="text-2xl font-bold mb-8 text-left"
+          style={{ fontSize: 32 }}
+        >
+          Order Management
+        </h1>
+        <div className="bg-white rounded-xl shadow p-8 border border-gray-300">
+          <h2 className="text-xl font-bold mb-6">Detail Order</h2>
+          <div className="bg-[#F4F4F4] rounded-xl p-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-2">
+                  <span className="font-medium">Order ID:</span> {order.id}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Tanggal Order:</span> {order.tanggal}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Produk:</span> {order.produk}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Total:</span> {order.total}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Pembayaran:</span> {order.pembayaran}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Ekspedisi:</span> {order.ekspedisi}
+                </div>
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="font-medium">Status:</span>
+                  <select
+                    className="border rounded px-3 py-1 text-sm"
+                    value={order.status}
+                    disabled
+                  >
+                    {statusOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 className="text-xl font-bold mb-6">Info Costumer</h2>
+          <div className="bg-[#F4F4F4] rounded-xl p-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-2">
+                  <span className="font-medium">Nama:</span> {order.customer.nama}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Email:</span> {order.customer.email}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">No Hp:</span> {order.customer.hp}
+                </div>
+                <div className="mb-2">
+                  <span className="font-medium">Alamat:</span> {order.customer.alamat}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-4 mt-4">
+            <button className="px-8 py-2 rounded-2xl bg-black text-white font-medium">
+              Print Shipping Label
+            </button>
+            <button className="px-8 py-2 rounded-2xl bg-black text-white font-medium">
+              Print Invoice
+            </button>
+          </div>
+        </div>
+      </div>
+      <footer className="bg-black text-center py-4 text-white/60 text-sm mt-8">
+        ©2025 ARLOJIE. All Rights Reserved
+      </footer>
     </div>
   );
 };
